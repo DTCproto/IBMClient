@@ -1,0 +1,3 @@
+[submodule "ss-go2-cloudfoundry"]
+	path = ss-go2-cloudfoundry
+	url = https://github.com/DTCproto/ss-go2-cloudfoundry.git
