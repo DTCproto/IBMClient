@@ -50,7 +50,7 @@ EOF
 clone_repo(){
     echo "进行初始化。。。"
 	rm -rf IBMYes
-    git clone https://github.com/xxx/IBMYes
+    git clone https://github.com/DTCproto/IBMYes.git
     cd IBMYes
     cd ss-go2-cloudfoundry/ss-go2
     # Upgrade V2Ray to the latest version
