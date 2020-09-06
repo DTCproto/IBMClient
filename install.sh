@@ -66,8 +66,8 @@ install(){
     ibmcloud target --cf
     echo "N"|ibmcloud cf install
     ibmcloud cf push
-    echo ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml
-    echo ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
+    echo cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml
+    echo cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
     echo "安装完成。"
 
 }
