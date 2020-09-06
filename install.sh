@@ -41,7 +41,7 @@ create_mainfest_file(){
 EOF
 
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
-    web: ./ss-go2/ss -s 'ss://${METHOD}:${PASSWORD}@:443' -verbose -plugin v2ray-plugin -plugin-opts server;path=/${WSPATH}
+    web: ./ss-go2/ss-go2 -s 'ss://${METHOD}:${PASSWORD}@:443' -verbose -plugin v2ray-plugin -plugin-opts "server;path=/${WSPATH}"
 EOF
 
     echo "配置完成。"
