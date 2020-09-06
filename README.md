@@ -15,7 +15,7 @@
 # 使用 IBM Cloud Fonudray 搭建
 
 ```shell
-wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/DTCproto/IBMYes/master/install.sh && chmod +x install.sh  && ./install.sh
+wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/DTCproto/IBMYes/master/install.sh && chmod +x install.sh && ./install.sh
 ```
 
 至此我们已经有一个可用的 v2ray 了，但是他每 10 天会重启一次，而且网速延迟很差，所以接下来会解决这个问题。
