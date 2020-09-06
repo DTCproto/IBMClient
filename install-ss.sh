@@ -14,23 +14,23 @@ create_mainfest_file(){
     fi
     echo "内存大小：${IBM_MEM_SIZE}"
     # WebSocket路径
-    read -p "请输入你的应用WebSocket路径(默认 ibm-cloud-v2)：" WSPATH
-    if [ -z "${WSPATH}" ];then
-    WSPATH=ibm-cloud-v2
-    fi
-    echo "应用WebSocket路径：${WSPATH}"
+    # read -p "请输入你的应用WebSocket路径(默认 ibm-cloud-v2)：" WSPATH
+    # if [ -z "${WSPATH}" ];then
+    # WSPATH=ibm-cloud-v2
+    # fi
+    # echo "应用WebSocket路径：${WSPATH}"
     # 密码
-    read -p "请输入你的密码：" PASSWORD
-    if [ -z "${PASSWORD}" ];then
-    PASSWORD=$(cat /proc/sys/kernel/random/uuid)
-    fi
-    echo "随机密码为：${PASSWORD}"
+    # read -p "请输入你的密码：" PASSWORD
+    # if [ -z "${PASSWORD}" ];then
+    # PASSWORD=$(cat /proc/sys/kernel/random/uuid)
+    # fi
+    # echo "随机密码为：${PASSWORD}"
     # 加密方式
-    read -p "请输入你的加密方式(默认AES-128-GCM)：" METHOD
-    if [ -z "${METHOD}" ];then
-    METHOD=AES-128-GCM
-    fi
-    echo "加密方式为：${METHOD}"
+    # read -p "请输入你的加密方式(默认AES-128-GCM)：" METHOD
+    # if [ -z "${METHOD}" ];then
+    # METHOD=AES-128-GCM
+    # fi
+    # echo "加密方式为：${METHOD}"
     
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
     applications:
@@ -40,9 +40,9 @@ create_mainfest_file(){
       memory: ${IBM_MEM_SIZE}M
 EOF
 
-    cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
-    web: ./ss-go2/ss-go2 -s ss://${METHOD}:${PASSWORD}@:443 -verbose -plugin v2ray-plugin -plugin-opts server;path=/${WSPATH}
-EOF
+    # cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
+    # web: ./ss-go2/ss-go2
+# EOF
 
     echo "配置完成。"
 }
