@@ -52,6 +52,7 @@ clone_repo(){
 	rm -rf IBMYes
     git clone https://github.com/DTCproto/IBMYes.git
     cd IBMYes
+    git submodule update --init --recursive
     cd ss-go2-cloudfoundry/ss-go2
     # Upgrade V2Ray to the latest version
     
