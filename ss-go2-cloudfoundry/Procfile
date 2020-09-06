@@ -1,1 +1,1 @@
-web: ./ss-go2/ss -s 'ss://AES-128-GCM:PASSWORD@:443' -verbose -plugin-opts "server;path=/ibm-cloud-v2"
+web: ./ss-go2/ss -s 'ss://AES-128-GCM:PASSWORD@:443' -verbose -plugin v2ray-plugin -plugin-opts "server;path=/ibm-cloud-v2"
