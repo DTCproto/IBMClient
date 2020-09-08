@@ -54,8 +54,8 @@ clone_repo(){
     cd IBMYes
     git submodule update --init --recursive
     cd ss-go2-cloudfoundry/ss-go2
-    # Upgrade V2Ray to the latest version
     
+    # 权限赋值
     chmod 0755 ./*
     cd ${SH_PATH}/IBMYes/ss-go2-cloudfoundry
     echo "初始化完成。"
@@ -67,7 +67,8 @@ install(){
     ibmcloud target --cf
     echo "N"|ibmcloud cf install
     ibmcloud cf push
-    echo "安装完成。"
+    
+    echo "安装完成，服务配置："
     cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
 
 }

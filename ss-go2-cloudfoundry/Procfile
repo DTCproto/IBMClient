@@ -1,1 +1,1 @@
-web: ./ss-go2/ss-go2
+web:  web: ./ss-go2/ss -s 'ss://AES-128-GCM$PASSWORD@:8080' -verbose
