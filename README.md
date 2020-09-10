@@ -16,6 +16,6 @@ wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/DTCp
 
 # 利用 Github 的 Actions 每周重启 IBM Cloud Fonudray
 
-~~ 不在此处进行说明 ~~
+[~~ 不在此处进行说明 ~~]
 
 IBM Cloud 10 天不操作就会关机，所以我们需要 十天内对其重启一次，避免关机。
