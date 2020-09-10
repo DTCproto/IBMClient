@@ -33,15 +33,18 @@ create_mainfest_file(){
     echo "加密方式为：${METHOD}"
     
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
-    applications:
-    - path: .
-      name: ${IBM_APP_NAME}
-      random-route: true
-      memory: ${IBM_MEM_SIZE}M
+applications:
+  - path: .
+    name: ${IBM_APP_NAME}
+    random-route: true
+    memory: ${IBM_MEM_SIZE}M
+    env:
+      GOPACKAGENAME: ss-go2-cloudfoundry
+      GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry/cmd/server
 EOF
 
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
-    web: ./ss-go2/ss -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "./ss-go2/v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
+web: ss-go2 -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
 EOF
 
     echo "配置完成。"
@@ -57,7 +60,7 @@ clone_repo(){
     
     # 权限赋值
     chmod 0755 ./*
-    cd ${SH_PATH}/IBMYes/ss-go2-cloudfoundry
+    # cd ${SH_PATH}/IBMYes/ss-go2-cloudfoundry
     echo "初始化完成。"
 }
 
@@ -69,7 +72,7 @@ install(){
     ibmcloud cf push
     
     echo "安装完成，服务配置："
-    cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
+    # cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
 
 }
 
