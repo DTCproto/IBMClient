@@ -38,9 +38,8 @@ create_mainfest_file(){
         name: ${IBM_APP_NAME}
         random-route: true
         memory: ${IBM_MEM_SIZE}M
-        buildpacks:
-          - go_buildpack
         env:
+          GOVERSION: go1.14
           GOPACKAGENAME: ss-go2-cloudfoundry
 EOF
 
@@ -49,7 +48,9 @@ EOF
 EOF
 
     echo "配置完成。配置如下："
+    echo "[Procfile]："
     cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
+    echo "[manifest.yml]："
     cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml
     
 }
