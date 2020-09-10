@@ -33,22 +33,25 @@ create_mainfest_file(){
     echo "加密方式为：${METHOD}"
     
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
-applications:
-  - path: ss-go2-cloudfoundry/cmd/server
-    name: ${IBM_APP_NAME}
-    random-route: true
-    memory: ${IBM_MEM_SIZE}M
-    buildpacks:
-      - go_buildpack
-    env:
-      GOPACKAGENAME: ss-go2-cloudfoundry
+    applications:
+      - path: ss-go2-cloudfoundry/cmd/server
+        name: ${IBM_APP_NAME}
+        random-route: true
+        memory: ${IBM_MEM_SIZE}M
+        buildpacks:
+          - go_buildpack
+        env:
+          GOPACKAGENAME: ss-go2-cloudfoundry
 EOF
 
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
-web: ss-go2 -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
+    web: ss-go2 -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
 EOF
 
-    echo "配置完成。"
+    echo "配置完成。配置如下："
+    cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
+    cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml
+    
 }
 
 clone_repo(){
@@ -66,14 +69,16 @@ clone_repo(){
 }
 
 install(){
-    echo "进行安装。。。"
+    echo "进行安装 START..."
     cd ${SH_PATH}/IBMYes/ss-go2-cloudfoundry
+    echo "开始执行[ibmcloud target --cf]..."
     ibmcloud target --cf
+    echo "开始执行[ibmcloud cf install]..."
     echo "N"|ibmcloud cf install
+    echo "开始执行[ibmcloud cf push]..."
     ibmcloud cf push
     
-    echo "安装完成，服务配置："
-    # cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
+    echo "安装完成. END"
 
 }
 
