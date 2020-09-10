@@ -41,6 +41,8 @@ create_mainfest_file(){
           - go_buildpack
         env:
           GOVERSION: go1.14
+          GOPACKAGENAME: ss-go2-cloudfoundry
+          GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry
 EOF
 
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
