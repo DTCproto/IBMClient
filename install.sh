@@ -57,7 +57,7 @@ clone_repo(){
     git clone https://github.com/DTCproto/IBMYes.git
     cd IBMYes
     git submodule update --init --recursive
-    cd ss-go2-cloudfoundry/ss-go2
+    cd ss-go2-cloudfoundry/cmd/server
     
     # 权限赋值
     chmod 0755 ./*
