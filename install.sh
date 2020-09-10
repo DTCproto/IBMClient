@@ -34,13 +34,15 @@ create_mainfest_file(){
     
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
     applications:
-      - path: cmd/server
-        name: ${IBM_APP_NAME}
+      - name: ${IBM_APP_NAME}
         random-route: true
         memory: ${IBM_MEM_SIZE}M
+        buildpacks:
+          - go_buildpack
         env:
           GOVERSION: go1.14
           GOPACKAGENAME: ss-go2-cloudfoundry
+          GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry/cmd/server
 EOF
 
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF

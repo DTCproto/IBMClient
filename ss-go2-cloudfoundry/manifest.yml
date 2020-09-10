@@ -1,6 +1,5 @@
 applications:
-  - path: cmd/server
-    name: GetStartedGo
+  - name: GetStartedGo
     # instances: 1
     # command: my-go-server
     random-route: true
@@ -10,4 +9,4 @@ applications:
     env:
       GOVERSION: go1.14
       GOPACKAGENAME: ss-go2-cloudfoundry
-      # GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry/cmd/server
+      GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry/cmd/server
