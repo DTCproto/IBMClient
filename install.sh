@@ -46,13 +46,7 @@ create_mainfest_file(){
           GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry
 EOF
 
-    cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
-    web: resources/elf/ss-go2 -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "resources/elf/v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
-EOF
-
     echo "配置完成。配置如下："
-    echo "[Procfile]："
-    cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile
     echo "[manifest.yml]："
     cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml
     
