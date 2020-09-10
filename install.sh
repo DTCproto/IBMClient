@@ -32,7 +32,7 @@ create_mainfest_file(){
     fi
     echo "加密方式为：${METHOD}"
 
-    COMMAND_APP='resources/elf/ss-go2 -s "ss://${METHOD}:${PASSWORD}@:8080" -verbose -plugin "resources/elf/v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"'
+    COMMAND_APP=resources/elf/ss-go2 -s "ss://${METHOD}:${PASSWORD}@:8080" -verbose -plugin "resources/elf/v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
     
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
     applications:
