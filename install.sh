@@ -34,7 +34,7 @@ create_mainfest_file(){
     
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
     applications:
-      - path: ./cmd/server
+      - path: cmd/server
         name: ${IBM_APP_NAME}
         random-route: true
         memory: ${IBM_MEM_SIZE}M
