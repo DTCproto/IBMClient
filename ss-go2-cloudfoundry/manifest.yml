@@ -1,7 +1,8 @@
 applications:
-  - name: GetStartedGo
+  - path: .
+    name: GetStartedGo
     # instances: 1
-    # command: my-go-server
+    # command: ss-go2-cloudfoundry
     random-route: true
     memory: 128M
     buildpacks:

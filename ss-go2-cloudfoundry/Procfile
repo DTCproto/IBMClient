@@ -1,1 +1,1 @@
-web: ss-go2 -s 'ss://AES-128-GCM:d43cc942-c7ad-48be-a429-697294118f1e@:8080' -verbose -plugin "v2ray-plugin" -plugin-opts "server;path=/v2-ws"
+web: ss-go2-cloudfoundry

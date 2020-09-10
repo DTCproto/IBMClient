@@ -1,9 +1,19 @@
 package main
 
 import (
-	"fmt"
+	"net/http"
 )
 
 func main() {
-	fmt.Println("Cloud foundry Start...")
+	HttpServerSimple("8080")
+}
+
+func serveHTTP(w http.ResponseWriter, _ *http.Request) {
+	responseMsg := "Cloud foundry Start..."
+	_, _ = w.Write([]byte(responseMsg))
+}
+
+func HttpServerSimple(port string) {
+	http.HandleFunc("/", serveHTTP)
+	_ = http.ListenAndServe(":"+port, nil)
 }
