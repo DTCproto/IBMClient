@@ -42,8 +42,6 @@ create_mainfest_file(){
           - go_buildpack
         env:
           GOVERSION: go1
-          GOPACKAGENAME: ss-go2-cloudfoundry
-          GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry/cmd/server
 EOF
 
     cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/Procfile  << EOF
@@ -64,11 +62,12 @@ clone_repo(){
     git clone https://github.com/DTCproto/IBMYes.git
     cd IBMYes
     git submodule update --init --recursive
-    cd ss-go2-cloudfoundry/cmd/server
+    cd ss-go2-cloudfoundry
+    go build -ldflags "-w -s"
     
     # 权限赋值
-    chmod 0755 ./*
-    # cd ${SH_PATH}/IBMYes/ss-go2-cloudfoundry
+    chmod 0755 resources/elf/*
+    
     echo "初始化完成。"
 }
 
