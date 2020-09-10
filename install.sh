@@ -37,6 +37,7 @@ create_mainfest_file(){
       - name: ${IBM_APP_NAME}
         random-route: true
         memory: ${IBM_MEM_SIZE}M
+        command: ss-go2-cloudfoundry
         buildpacks:
           - go_buildpack
         env:
