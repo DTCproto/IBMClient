@@ -1,5 +1,5 @@
 applications:
-  - path: ss-go2-cloudfoundry/cmd/server
+  - path: ./cmd/server
     name: GetStartedGo
     # instances: 1
     # command: my-go-server
