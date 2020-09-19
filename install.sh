@@ -32,7 +32,7 @@ create_mainfest_file(){
     fi
     echo "加密方式为：${METHOD}"
 
-    cat >  ${SH_PATH}/IBMYes/web-cloudfoundry/manifest.yml  << EOF
+    cat >  ${SH_PATH}/IBMClient/web-cloudfoundry/manifest.yml  << EOF
     applications:
       - name: ${IBM_APP_NAME}
         random-route: true
@@ -48,15 +48,15 @@ EOF
 
     echo "配置完成。配置如下："
     echo "[manifest.yml]："
-    cat ${SH_PATH}/IBMYes/web-cloudfoundry/manifest.yml
+    cat ${SH_PATH}/IBMClient/web-cloudfoundry/manifest.yml
     
 }
 
 clone_repo(){
     echo "进行初始化。。。"
-	rm -rf IBMYes
+	rm -rf IBMClient
     git clone https://github.com/DTCproto/IBMClient.git
-    cd IBMYes
+    cd IBMClient
     git submodule update --init --recursive
     cd web-cloudfoundry
     go build -ldflags "-w -s"
@@ -69,7 +69,7 @@ clone_repo(){
 
 install(){
     echo "进行安装 START..."
-    cd ${SH_PATH}/IBMYes/web-cloudfoundry
+    cd ${SH_PATH}/IBMClient/web-cloudfoundry
     echo "开始执行[ibmcloud target --cf]..."
     ibmcloud target --cf
     echo "开始执行[ibmcloud cf install]..."
