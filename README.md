@@ -11,7 +11,7 @@
 # 使用 IBM Cloud Fonudray 搭建
 
 ```shell
-wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/DTCproto/IBMYes/master/install.sh && chmod +x install.sh && ./install.sh
+wget --no-check-certificate -O install.sh https://raw.githubusercontent.com/DTCproto/IBMClient/master/install.sh && chmod +x install.sh && ./install.sh
 ```
 
 # 利用 Github 的 Actions 每周重启 IBM Cloud Fonudray

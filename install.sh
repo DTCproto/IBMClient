@@ -32,33 +32,33 @@ create_mainfest_file(){
     fi
     echo "加密方式为：${METHOD}"
 
-    cat >  ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml  << EOF
+    cat >  ${SH_PATH}/IBMYes/web-cloudfoundry/manifest.yml  << EOF
     applications:
       - name: ${IBM_APP_NAME}
         random-route: true
         memory: ${IBM_MEM_SIZE}M
-        command: resources/elf/ss-go2 -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "resources/elf/v2ray-plugin" -plugin-opts "server;path=/${WSPATH}"
+        command: resources/elf/web-go -s 'ss://${METHOD}:${PASSWORD}@:8080' -verbose -plugin "resources/elf/plugin" -plugin-opts "server;path=/${WSPATH}"
         buildpacks:
           - go_buildpack
         env:
           GOVERSION: go1.14
-          GOPACKAGENAME: ss-go2-cloudfoundry
-          GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry
+          GOPACKAGENAME: web-cloudfoundry
+          GO_INSTALL_PACKAGE_SPEC: web-cloudfoundry
 EOF
 
     echo "配置完成。配置如下："
     echo "[manifest.yml]："
-    cat ${SH_PATH}/IBMYes/ss-go2-cloudfoundry/manifest.yml
+    cat ${SH_PATH}/IBMYes/web-cloudfoundry/manifest.yml
     
 }
 
 clone_repo(){
     echo "进行初始化。。。"
 	rm -rf IBMYes
-    git clone https://github.com/DTCproto/IBMYes.git
+    git clone https://github.com/DTCproto/IBMClient.git
     cd IBMYes
     git submodule update --init --recursive
-    cd ss-go2-cloudfoundry
+    cd web-cloudfoundry
     go build -ldflags "-w -s"
     
     # 权限赋值
@@ -69,7 +69,7 @@ clone_repo(){
 
 install(){
     echo "进行安装 START..."
-    cd ${SH_PATH}/IBMYes/ss-go2-cloudfoundry
+    cd ${SH_PATH}/IBMYes/web-cloudfoundry
     echo "开始执行[ibmcloud target --cf]..."
     ibmcloud target --cf
     echo "开始执行[ibmcloud cf install]..."

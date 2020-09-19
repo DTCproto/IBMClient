@@ -1,12 +1,12 @@
 applications:
   - path: .
     name: GetStartedGo
-    command: ss-go2-cloudfoundry
+    command: web-cloudfoundry
     random-route: true
     memory: 128M
     buildpacks:
       - go_buildpack
     env:
       GOVERSION: go1.14
-      GOPACKAGENAME: ss-go2-cloudfoundry
-      GO_INSTALL_PACKAGE_SPEC: ss-go2-cloudfoundry
+      GOPACKAGENAME: web-cloudfoundry
+      GO_INSTALL_PACKAGE_SPEC: web-cloudfoundry
